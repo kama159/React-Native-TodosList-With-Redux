@@ -69,7 +69,8 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "white",
     fontSize: 18,
-    padding: 5,
+    paddingBottom: 10,
+    paddingTop: 10,
   },
 });
 

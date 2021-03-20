@@ -1,12 +1,16 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import {
+  View,
+  StyleSheet,
+  ScrollView,
+} from "react-native";
 import TodoListItem from "./TodoListItem";
 
 import { connect } from "react-redux";
 import { toggleTodoAction, setEditingTodoAction } from "../actions";
 
 const TodoList = ({ todos, DispatchToggleTodo, DispatchSetEditingTodo }) => (
-  <View style={styles.container}>
+  <ScrollView style={styles.container}>
     {todos.map((todo) => (
       <TodoListItem
         key={todo.id}
@@ -15,12 +19,16 @@ const TodoList = ({ todos, DispatchToggleTodo, DispatchSetEditingTodo }) => (
         onLongPressTodo={() => DispatchSetEditingTodo(todo)}
       />
     ))}
-  </View>
+    <View style={styles.paddingBottom}></View>
+  </ScrollView>
 );
 
 const styles = StyleSheet.create({
   container: {
     margin: 10,
+  },
+  paddingBottom: {
+    paddingBottom: 75,
   },
 });
 
